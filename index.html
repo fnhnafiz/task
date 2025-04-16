@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- tailwind css cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- font awesome ccdn -->
+    <script
+      src="https://kit.fontawesome.com/3a3465a069.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Task</title>
+  </head>
+  <body>
+    <header>
+      <nav
+        class="sticky top-0 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 z-50"
+      >
+        <div class="max-w-7xl mx-auto px-4">
+          <div class="flex items-center justify-between h-16">
+            <!-- Logo -->
+            <div class="flex items-center">
+              <a
+                class="text-xl font-bold text-primary font-mono tracking-wider"
+                href="/"
+                >MINGLO</a
+              >
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-4">
+              <!-- Theme Toggle Button -->
+              <button
+                class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-9 w-9"
+              >
+                <i
+                  class="fas fa-sun h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
+                ></i>
+                <i
+                  class="fas fa-moon absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
+                ></i>
+                <span class="sr-only">Toggle theme</span>
+              </button>
+
+              <!-- Home Link -->
+              <a
+                class="justify-center whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-9 px-4 py-2 flex items-center gap-2"
+                href="/"
+              >
+                <i class="fas fa-home w-4 h-4"></i>
+                <span class="hidden lg:inline">Home</span>
+              </a>
+
+              <!-- Notifications Link -->
+              <a
+                class="justify-center whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-9 px-4 py-2 flex items-center gap-2"
+                href="/notification"
+              >
+                <i class="fas fa-bell w-4 h-4"></i>
+                <span class="hidden lg:inline">Notifications</span>
+              </a>
+
+              <!-- Profile Link -->
+              <a
+                class="justify-center whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-9 px-4 py-2 flex items-center gap-2"
+                href="/profile/nafizhossain2k21"
+              >
+                <i class="fas fa-user w-4 h-4"></i>
+                <span class="hidden lg:inline">Profile</span>
+              </a>
+
+              <!-- User Avatar -->
+              <div class="flex items-center">
+                <button class="rounded-full overflow-hidden h-9 w-9">
+                  <img
+                    src="https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ydkdOS2VHcG51cGtpa3R4ZGZZU014V3FHYlkifQ?width=160"
+                    alt="User avatar"
+                    class="h-full w-full object-cover"
+                  />
+                </button>
+              </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="flex md:hidden items-center space-x-2">
+              <!-- Mobile Theme Toggle -->
+              <button
+                class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-9 w-9 mr-2"
+              >
+                <i
+                  class="fas fa-sun h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
+                ></i>
+                <i
+                  class="fas fa-moon absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
+                ></i>
+                <span class="sr-only">Toggle theme</span>
+              </button>
+
+              <!-- Mobile Menu Button -->
+              <button
+                class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-9 w-9"
+                type="button"
+              >
+                <i class="fas fa-bars h-5 w-5"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- main -->
+    <main class="py-8">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <!-- sidebar -->
+          <div class="hidden lg:block lg:col-span-3">
+            <div class="sticky top-20">
+              <div
+                class="bg-white text-black flex flex-col gap-6 rounded-xl border border-gray-200 dark:border-gray-700 py-6 shadow-sm"
+              >
+                <div class="px-6 pt-6">
+                  <div class="flex flex-col items-center text-center">
+                    <!-- Profile Section -->
+                    <a
+                      class="flex flex-col items-center justify-center"
+                      href="/profile/nafizhossain2k21"
+                    >
+                      <span
+                        class="relative flex w-20 h-20 shrink-0 overflow-hidden rounded-full border-2 border-blue-500"
+                      >
+                        <img
+                          class="aspect-square w-full h-full object-cover"
+                          src="https://randomuser.me/api/portraits/men/1.jpg"
+                          alt="Profile picture"
+                        />
+                      </span>
+                      <div class="mt-4 space-y-1">
+                        <h3 class="font-semibold text-lg">Nafiz Hossain</h3>
+                        <p class="text-sm text-black">@nafizhossain2k21</p>
+                      </div>
+                    </a>
+
+                    <!-- Bio -->
+                    <p class="mt-3 text-sm text-black">I am a Barovatari</p>
+
+                    <!-- Stats Section -->
+                    <div class="w-full">
+                      <!-- Divider -->
+                      <div
+                        class="bg-gray-200 dark:bg-gray-700 h-px w-full my-4"
+                      ></div>
+
+                      <!-- Stats -->
+                      <div class="flex justify-between">
+                        <div class="text-center">
+                          <p class="font-medium">1</p>
+                          <p class="text-xs text-black">Following</p>
+                        </div>
+
+                        <div
+                          class="bg-gray-200 dark:bg-gray-700 w-px h-full"
+                        ></div>
+
+                        <div class="text-center">
+                          <p class="font-medium">2</p>
+                          <p class="text-xs text-black">Followers</p>
+                        </div>
+                      </div>
+
+                      <!-- Divider -->
+                      <div
+                        class="bg-gray-200 dark:bg-gray-700 h-px w-full my-4"
+                      ></div>
+                    </div>
+
+                    <!-- Info Section -->
+                    <div class="w-full space-y-2 text-sm">
+                      <!-- Location -->
+                      <div class="flex items-center text-black">
+                        <i class="fas fa-map-marker-alt w-4 h-4 mr-2"></i>
+                        <span>Bangladesh</span>
+                      </div>
+
+                      <!-- Website -->
+                      <div class="flex items-center text-black">
+                        <i class="fas fa-link w-4 h-4 mr-2"></i>
+                        <a
+                          href="http://example.com"
+                          class="hover:underline truncate"
+                          target="_blank"
+                          >http://example.com</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- sidebar end -->
+          <!-- middle post bar -->
+          <div class="lg:col-span-9">
+            <div class="grid grid-cols-1 lg:grid-cols-10 gap-6">
+              <div class="lg:col-span-6">
+                <!-- write your post here -->
+                <div
+                  class="bg-white text-black flex flex-col gap-6 rounded-xl border border-gray-200 py-6 shadow-sm mb-6"
+                >
+                  <div class="px-6">
+                    <div class="space-y-4">
+                      <!-- User Avatar -->
+                      <div
+                        class="relative flex w-10 h-10 shrink-0 overflow-hidden rounded-full"
+                      >
+                        <img
+                          class="aspect-square w-full h-full object-cover"
+                          src="https://randomuser.me/api/portraits/men/1.jpg"
+                          alt="Profile picture"
+                        />
+                      </div>
+
+                      <!-- Textarea -->
+                      <input
+                        type="text"
+                        class="w-full rounded-md border-none focus:ring-0 p-3 text-base min-h-[100px] resize-none placeholder:text-black"
+                        placeholder="What's on your mind?"
+                      />
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div
+                      class="flex items-center justify-between border-t border-gray-200 pt-4 mt-4"
+                    >
+                      <div class="flex space-x-2">
+                        <!-- Photo Button -->
+                        <button
+                          class="inline-flex items-center justify-center text-sm font-medium h-8 rounded-md gap-1.5 px-3 text-gray-500 hover:text-blue-500"
+                          type="button"
+                        >
+                          <i class="fas fa-image text-gray-500 mr-2"></i>
+                          Photo
+                        </button>
+                      </div>
+
+                      <!-- Post Button -->
+                      <button
+                        class="flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium bg-blue-500 text-white hover:bg-blue-600 h-9 px-4 py-2"
+                        disabled
+                      >
+                        <i class="fas fa-paper-plane mr-2"></i>
+                        Post
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- end write post -->
+                <!-- dynamic post here -->
+                <div class="space-y-4">
+                  <!-- firtst post -->
+                  <div
+                    class="bg-white text-gray-800 flex flex-col gap-6 rounded-xl border py-6 shadow-sm overflow-hidden"
+                  >
+                    <div class="p-4 sm:p-6 space-y-4">
+                      <!-- Avatar and Name Section -->
+                      <div class="flex space-x-4">
+                        <a href="/profile/nafizhossain2k21">
+                          <span
+                            class="relative flex shrink-0 overflow-hidden rounded-full w-10 h-10"
+                          >
+                            <img
+                              class="object-cover w-full h-full"
+                              src="https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ydkdOS2VHcG51cGtpa3R4ZGZZU014V3FHYlkifQ"
+                              alt="Avatar"
+                            />
+                          </span>
+                        </a>
+                        <div class="flex-1 min-w-0">
+                          <div class="flex items-start justify-between">
+                            <div
+                              class="flex flex-col sm:flex-row sm:items-center sm:space-x-2 truncate"
+                            >
+                              <a
+                                class="font-semibold truncate"
+                                href="/profile/nafizhossain2k21"
+                                >Nafiz Hossain</a
+                              >
+                              <div
+                                class="flex items-center space-x-2 text-sm text-gray-500"
+                              >
+                                <a href="/profile/nafizhossain2k21"
+                                  >@nafizhossain2k21</a
+                                >
+                                <span>•</span>
+                                <span>about 22 hours ago</span>
+                              </div>
+                            </div>
+                            <button
+                              class="text-gray-500 hover:text-red-500 h-8 px-2 rounded-md focus:outline-none focus:ring-2 focus:ring-red-300 transition"
+                            >
+                              <i class="fas fa-trash-alt"></i>
+                            </button>
+                          </div>
+                          <p class="mt-2 text-sm break-words">
+                            wow, i gained 2 followers in MINGLO!!
+                          </p>
+                        </div>
+                      </div>
+
+                      <!-- Post Image -->
+                      <div class="rounded-lg overflow-hidden">
+                        <img
+                          class="w-full h-auto object-cover"
+                          src="https://utfs.io/f/xnfjHhV7BGMUCTEJux40HxykWQbDqplf5jLJ627PEMN8gV93"
+                          alt="Post content"
+                        />
+                      </div>
+
+                      <!-- Buttons: Like and Comment -->
+                      <div class="flex items-center pt-2 space-x-4">
+                        <button
+                          class="flex items-center text-gray-500 hover:text-red-500 gap-2 transition px-3 py-1 rounded-md text-sm"
+                        >
+                          <i class="fas fa-heart"></i><span>1</span>
+                        </button>
+                        <button
+                          class="flex items-center text-gray-500 hover:text-blue-500 gap-2 transition px-3 py-1 rounded-md text-sm"
+                        >
+                          <i class="fas fa-comment"></i><span>0</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- firtst post -->
+                  <div
+                    class="bg-white text-gray-800 flex flex-col gap-6 rounded-xl border py-6 shadow-sm overflow-hidden"
+                  >
+                    <div class="p-4 sm:p-6 space-y-4">
+                      <!-- Avatar and Name Section -->
+                      <div class="flex space-x-4">
+                        <a href="/profile/nafizhossain2k21">
+                          <span
+                            class="relative flex shrink-0 overflow-hidden rounded-full w-10 h-10"
+                          >
+                            <img
+                              class="object-cover w-full h-full"
+                              src="https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ydkdOS2VHcG51cGtpa3R4ZGZZU014V3FHYlkifQ"
+                              alt="Avatar"
+                            />
+                          </span>
+                        </a>
+                        <div class="flex-1 min-w-0">
+                          <div class="flex items-start justify-between">
+                            <div
+                              class="flex flex-col sm:flex-row sm:items-center sm:space-x-2 truncate"
+                            >
+                              <a
+                                class="font-semibold truncate"
+                                href="/profile/nafizhossain2k21"
+                                >Nafiz Hossain</a
+                              >
+                              <div
+                                class="flex items-center space-x-2 text-sm text-gray-500"
+                              >
+                                <a href="/profile/nafizhossain2k21"
+                                  >@nafizhossain2k21</a
+                                >
+                                <span>•</span>
+                                <span>about 22 hours ago</span>
+                              </div>
+                            </div>
+                            <button
+                              class="text-gray-500 hover:text-red-500 h-8 px-2 rounded-md focus:outline-none focus:ring-2 focus:ring-red-300 transition"
+                            >
+                              <i class="fas fa-trash-alt"></i>
+                            </button>
+                          </div>
+                          <p class="mt-2 text-sm break-words">
+                            wow, i gained 2 followers in MINGLO!!
+                          </p>
+                        </div>
+                      </div>
+
+                      <!-- Post Image -->
+                      <div class="rounded-lg overflow-hidden">
+                        <img
+                          class="w-full h-auto object-cover"
+                          src="https://utfs.io/f/xnfjHhV7BGMUCTEJux40HxykWQbDqplf5jLJ627PEMN8gV93"
+                          alt="Post content"
+                        />
+                      </div>
+
+                      <!-- Buttons: Like and Comment -->
+                      <div class="flex items-center pt-2 space-x-4">
+                        <button
+                          class="flex items-center text-gray-500 hover:text-red-500 gap-2 transition px-3 py-1 rounded-md text-sm"
+                        >
+                          <i class="fas fa-heart"></i><span>1</span>
+                        </button>
+                        <button
+                          class="flex items-center text-gray-500 hover:text-blue-500 gap-2 transition px-3 py-1 rounded-md text-sm"
+                        >
+                          <i class="fas fa-comment"></i><span>0</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- firtst post -->
+                  <div
+                    class="bg-white text-gray-800 flex flex-col gap-6 rounded-xl border py-6 shadow-sm overflow-hidden"
+                  >
+                    <div class="p-4 sm:p-6 space-y-4">
+                      <!-- Avatar and Name Section -->
+                      <div class="flex space-x-4">
+                        <a href="/profile/nafizhossain2k21">
+                          <span
+                            class="relative flex shrink-0 overflow-hidden rounded-full w-10 h-10"
+                          >
+                            <img
+                              class="object-cover w-full h-full"
+                              src="https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ydkdOS2VHcG51cGtpa3R4ZGZZU014V3FHYlkifQ"
+                              alt="Avatar"
+                            />
+                          </span>
+                        </a>
+                        <div class="flex-1 min-w-0">
+                          <div class="flex items-start justify-between">
+                            <div
+                              class="flex flex-col sm:flex-row sm:items-center sm:space-x-2 truncate"
+                            >
+                              <a
+                                class="font-semibold truncate"
+                                href="/profile/nafizhossain2k21"
+                                >Nafiz Hossain</a
+                              >
+                              <div
+                                class="flex items-center space-x-2 text-sm text-gray-500"
+                              >
+                                <a href="/profile/nafizhossain2k21"
+                                  >@nafizhossain2k21</a
+                                >
+                                <span>•</span>
+                                <span>about 22 hours ago</span>
+                              </div>
+                            </div>
+                            <button
+                              class="text-gray-500 hover:text-red-500 h-8 px-2 rounded-md focus:outline-none focus:ring-2 focus:ring-red-300 transition"
+                            >
+                              <i class="fas fa-trash-alt"></i>
+                            </button>
+                          </div>
+                          <p class="mt-2 text-sm break-words">
+                            wow, i gained 2 followers in MINGLO!!
+                          </p>
+                        </div>
+                      </div>
+
+                      <!-- Post Image -->
+                      <div class="rounded-lg overflow-hidden">
+                        <img
+                          class="w-full h-auto object-cover"
+                          src="https://utfs.io/f/xnfjHhV7BGMUCTEJux40HxykWQbDqplf5jLJ627PEMN8gV93"
+                          alt="Post content"
+                        />
+                      </div>
+
+                      <!-- Buttons: Like and Comment -->
+                      <div class="flex items-center pt-2 space-x-4">
+                        <button
+                          class="flex items-center text-gray-500 hover:text-red-500 gap-2 transition px-3 py-1 rounded-md text-sm"
+                        >
+                          <i class="fas fa-heart"></i><span>1</span>
+                        </button>
+                        <button
+                          class="flex items-center text-gray-500 hover:text-blue-500 gap-2 transition px-3 py-1 rounded-md text-sm"
+                        >
+                          <i class="fas fa-comment"></i><span>0</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- firtst post -->
+                  <div
+                    class="bg-white text-gray-800 flex flex-col gap-6 rounded-xl border py-6 shadow-sm overflow-hidden"
+                  >
+                    <div class="p-4 sm:p-6 space-y-4">
+                      <!-- Avatar and Name Section -->
+                      <div class="flex space-x-4">
+                        <a href="/profile/nafizhossain2k21">
+                          <span
+                            class="relative flex shrink-0 overflow-hidden rounded-full w-10 h-10"
+                          >
+                            <img
+                              class="object-cover w-full h-full"
+                              src="https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ydkdOS2VHcG51cGtpa3R4ZGZZU014V3FHYlkifQ"
+                              alt="Avatar"
+                            />
+                          </span>
+                        </a>
+                        <div class="flex-1 min-w-0">
+                          <div class="flex items-start justify-between">
+                            <div
+                              class="flex flex-col sm:flex-row sm:items-center sm:space-x-2 truncate"
+                            >
+                              <a
+                                class="font-semibold truncate"
+                                href="/profile/nafizhossain2k21"
+                                >Nafiz Hossain</a
+                              >
+                              <div
+                                class="flex items-center space-x-2 text-sm text-gray-500"
+                              >
+                                <a href="/profile/nafizhossain2k21"
+                                  >@nafizhossain2k21</a
+                                >
+                                <span>•</span>
+                                <span>about 22 hours ago</span>
+                              </div>
+                            </div>
+                            <button
+                              class="text-gray-500 hover:text-red-500 h-8 px-2 rounded-md focus:outline-none focus:ring-2 focus:ring-red-300 transition"
+                            >
+                              <i class="fas fa-trash-alt"></i>
+                            </button>
+                          </div>
+                          <p class="mt-2 text-sm break-words">
+                            wow, i gained 2 followers in MINGLO!!
+                          </p>
+                        </div>
+                      </div>
+
+                      <!-- Post Image -->
+                      <div class="rounded-lg overflow-hidden">
+                        <img
+                          class="w-full h-auto object-cover"
+                          src="https://utfs.io/f/xnfjHhV7BGMUCTEJux40HxykWQbDqplf5jLJ627PEMN8gV93"
+                          alt="Post content"
+                        />
+                      </div>
+
+                      <!-- Buttons: Like and Comment -->
+                      <div class="flex items-center pt-2 space-x-4">
+                        <button
+                          class="flex items-center text-gray-500 hover:text-red-500 gap-2 transition px-3 py-1 rounded-md text-sm"
+                        >
+                          <i class="fas fa-heart"></i><span>1</span>
+                        </button>
+                        <button
+                          class="flex items-center text-gray-500 hover:text-blue-500 gap-2 transition px-3 py-1 rounded-md text-sm"
+                        >
+                          <i class="fas fa-comment"></i><span>0</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- firtst post -->
+                  <div
+                    class="bg-white text-gray-800 flex flex-col gap-6 rounded-xl border py-6 shadow-sm overflow-hidden"
+                  >
+                    <div class="p-4 sm:p-6 space-y-4">
+                      <!-- Avatar and Name Section -->
+                      <div class="flex space-x-4">
+                        <a href="/profile/nafizhossain2k21">
+                          <span
+                            class="relative flex shrink-0 overflow-hidden rounded-full w-10 h-10"
+                          >
+                            <img
+                              class="object-cover w-full h-full"
+                              src="https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ydkdOS2VHcG51cGtpa3R4ZGZZU014V3FHYlkifQ"
+                              alt="Avatar"
+                            />
+                          </span>
+                        </a>
+                        <div class="flex-1 min-w-0">
+                          <div class="flex items-start justify-between">
+                            <div
+                              class="flex flex-col sm:flex-row sm:items-center sm:space-x-2 truncate"
+                            >
+                              <a
+                                class="font-semibold truncate"
+                                href="/profile/nafizhossain2k21"
+                                >Nafiz Hossain</a
+                              >
+                              <div
+                                class="flex items-center space-x-2 text-sm text-gray-500"
+                              >
+                                <a href="/profile/nafizhossain2k21"
+                                  >@nafizhossain2k21</a
+                                >
+                                <span>•</span>
+                                <span>about 22 hours ago</span>
+                              </div>
+                            </div>
+                            <button
+                              class="text-gray-500 hover:text-red-500 h-8 px-2 rounded-md focus:outline-none focus:ring-2 focus:ring-red-300 transition"
+                            >
+                              <i class="fas fa-trash-alt"></i>
+                            </button>
+                          </div>
+                          <p class="mt-2 text-sm break-words">
+                            wow, i gained 2 followers in MINGLO!!
+                          </p>
+                        </div>
+                      </div>
+
+                      <!-- Post Image -->
+                      <div class="rounded-lg overflow-hidden">
+                        <img
+                          class="w-full h-auto object-cover"
+                          src="https://utfs.io/f/xnfjHhV7BGMUCTEJux40HxykWQbDqplf5jLJ627PEMN8gV93"
+                          alt="Post content"
+                        />
+                      </div>
+
+                      <!-- Buttons: Like and Comment -->
+                      <div class="flex items-center pt-2 space-x-4">
+                        <button
+                          class="flex items-center text-gray-500 hover:text-red-500 gap-2 transition px-3 py-1 rounded-md text-sm"
+                        >
+                          <i class="fas fa-heart"></i><span>1</span>
+                        </button>
+                        <button
+                          class="flex items-center text-gray-500 hover:text-blue-500 gap-2 transition px-3 py-1 rounded-md text-sm"
+                        >
+                          <i class="fas fa-comment"></i><span>0</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- firtst post -->
+                  <div
+                    class="bg-white text-gray-800 flex flex-col gap-6 rounded-xl border py-6 shadow-sm overflow-hidden"
+                  >
+                    <div class="p-4 sm:p-6 space-y-4">
+                      <!-- Avatar and Name Section -->
+                      <div class="flex space-x-4">
+                        <a href="/profile/nafizhossain2k21">
+                          <span
+                            class="relative flex shrink-0 overflow-hidden rounded-full w-10 h-10"
+                          >
+                            <img
+                              class="object-cover w-full h-full"
+                              src="https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ydkdOS2VHcG51cGtpa3R4ZGZZU014V3FHYlkifQ"
+                              alt="Avatar"
+                            />
+                          </span>
+                        </a>
+                        <div class="flex-1 min-w-0">
+                          <div class="flex items-start justify-between">
+                            <div
+                              class="flex flex-col sm:flex-row sm:items-center sm:space-x-2 truncate"
+                            >
+                              <a
+                                class="font-semibold truncate"
+                                href="/profile/nafizhossain2k21"
+                                >Nafiz Hossain</a
+                              >
+                              <div
+                                class="flex items-center space-x-2 text-sm text-gray-500"
+                              >
+                                <a href="/profile/nafizhossain2k21"
+                                  >@nafizhossain2k21</a
+                                >
+                                <span>•</span>
+                                <span>about 22 hours ago</span>
+                              </div>
+                            </div>
+                            <button
+                              class="text-gray-500 hover:text-red-500 h-8 px-2 rounded-md focus:outline-none focus:ring-2 focus:ring-red-300 transition"
+                            >
+                              <i class="fas fa-trash-alt"></i>
+                            </button>
+                          </div>
+                          <p class="mt-2 text-sm break-words">
+                            wow, i gained 2 followers in MINGLO!!
+                          </p>
+                        </div>
+                      </div>
+
+                      <!-- Post Image -->
+                      <div class="rounded-lg overflow-hidden">
+                        <img
+                          class="w-full h-auto object-cover"
+                          src="https://utfs.io/f/xnfjHhV7BGMUCTEJux40HxykWQbDqplf5jLJ627PEMN8gV93"
+                          alt="Post content"
+                        />
+                      </div>
+
+                      <!-- Buttons: Like and Comment -->
+                      <div class="flex items-center pt-2 space-x-4">
+                        <button
+                          class="flex items-center text-gray-500 hover:text-red-500 gap-2 transition px-3 py-1 rounded-md text-sm"
+                        >
+                          <i class="fas fa-heart"></i><span>1</span>
+                        </button>
+                        <button
+                          class="flex items-center text-gray-500 hover:text-blue-500 gap-2 transition px-3 py-1 rounded-md text-sm"
+                        >
+                          <i class="fas fa-comment"></i><span>0</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- firtst post -->
+                  <div
+                    class="bg-white text-gray-800 flex flex-col gap-6 rounded-xl border py-6 shadow-sm overflow-hidden"
+                  >
+                    <div class="p-4 sm:p-6 space-y-4">
+                      <!-- Avatar and Name Section -->
+                      <div class="flex space-x-4">
+                        <a href="/profile/nafizhossain2k21">
+                          <span
+                            class="relative flex shrink-0 overflow-hidden rounded-full w-10 h-10"
+                          >
+                            <img
+                              class="object-cover w-full h-full"
+                              src="https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ydkdOS2VHcG51cGtpa3R4ZGZZU014V3FHYlkifQ"
+                              alt="Avatar"
+                            />
+                          </span>
+                        </a>
+                        <div class="flex-1 min-w-0">
+                          <div class="flex items-start justify-between">
+                            <div
+                              class="flex flex-col sm:flex-row sm:items-center sm:space-x-2 truncate"
+                            >
+                              <a
+                                class="font-semibold truncate"
+                                href="/profile/nafizhossain2k21"
+                                >Nafiz Hossain</a
+                              >
+                              <div
+                                class="flex items-center space-x-2 text-sm text-gray-500"
+                              >
+                                <a href="/profile/nafizhossain2k21"
+                                  >@nafizhossain2k21</a
+                                >
+                                <span>•</span>
+                                <span>about 22 hours ago</span>
+                              </div>
+                            </div>
+                            <button
+                              class="text-gray-500 hover:text-red-500 h-8 px-2 rounded-md focus:outline-none focus:ring-2 focus:ring-red-300 transition"
+                            >
+                              <i class="fas fa-trash-alt"></i>
+                            </button>
+                          </div>
+                          <p class="mt-2 text-sm break-words">
+                            wow, i gained 2 followers in MINGLO!!
+                          </p>
+                        </div>
+                      </div>
+
+                      <!-- Post Image -->
+                      <div class="rounded-lg overflow-hidden">
+                        <img
+                          class="w-full h-auto object-cover"
+                          src="https://utfs.io/f/xnfjHhV7BGMUCTEJux40HxykWQbDqplf5jLJ627PEMN8gV93"
+                          alt="Post content"
+                        />
+                      </div>
+
+                      <!-- Buttons: Like and Comment -->
+                      <div class="flex items-center pt-2 space-x-4">
+                        <button
+                          class="flex items-center text-gray-500 hover:text-red-500 gap-2 transition px-3 py-1 rounded-md text-sm"
+                        >
+                          <i class="fas fa-heart"></i><span>1</span>
+                        </button>
+                        <button
+                          class="flex items-center text-gray-500 hover:text-blue-500 gap-2 transition px-3 py-1 rounded-md text-sm"
+                        >
+                          <i class="fas fa-comment"></i><span>0</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- firtst post -->
+                  <div
+                    class="bg-white text-gray-800 flex flex-col gap-6 rounded-xl border py-6 shadow-sm overflow-hidden"
+                  >
+                    <div class="p-4 sm:p-6 space-y-4">
+                      <!-- Avatar and Name Section -->
+                      <div class="flex space-x-4">
+                        <a href="/profile/nafizhossain2k21">
+                          <span
+                            class="relative flex shrink-0 overflow-hidden rounded-full w-10 h-10"
+                          >
+                            <img
+                              class="object-cover w-full h-full"
+                              src="https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ydkdOS2VHcG51cGtpa3R4ZGZZU014V3FHYlkifQ"
+                              alt="Avatar"
+                            />
+                          </span>
+                        </a>
+                        <div class="flex-1 min-w-0">
+                          <div class="flex items-start justify-between">
+                            <div
+                              class="flex flex-col sm:flex-row sm:items-center sm:space-x-2 truncate"
+                            >
+                              <a
+                                class="font-semibold truncate"
+                                href="/profile/nafizhossain2k21"
+                                >Nafiz Hossain</a
+                              >
+                              <div
+                                class="flex items-center space-x-2 text-sm text-gray-500"
+                              >
+                                <a href="/profile/nafizhossain2k21"
+                                  >@nafizhossain2k21</a
+                                >
+                                <span>•</span>
+                                <span>about 22 hours ago</span>
+                              </div>
+                            </div>
+                            <button
+                              class="text-gray-500 hover:text-red-500 h-8 px-2 rounded-md focus:outline-none focus:ring-2 focus:ring-red-300 transition"
+                            >
+                              <i class="fas fa-trash-alt"></i>
+                            </button>
+                          </div>
+                          <p class="mt-2 text-sm break-words">
+                            wow, i gained 2 followers in MINGLO!!
+                          </p>
+                        </div>
+                      </div>
+
+                      <!-- Post Image -->
+                      <div class="rounded-lg overflow-hidden">
+                        <img
+                          class="w-full h-auto object-cover"
+                          src="https://utfs.io/f/xnfjHhV7BGMUCTEJux40HxykWQbDqplf5jLJ627PEMN8gV93"
+                          alt="Post content"
+                        />
+                      </div>
+
+                      <!-- Buttons: Like and Comment -->
+                      <div class="flex items-center pt-2 space-x-4">
+                        <button
+                          class="flex items-center text-gray-500 hover:text-red-500 gap-2 transition px-3 py-1 rounded-md text-sm"
+                        >
+                          <i class="fas fa-heart"></i><span>1</span>
+                        </button>
+                        <button
+                          class="flex items-center text-gray-500 hover:text-blue-500 gap-2 transition px-3 py-1 rounded-md text-sm"
+                        >
+                          <i class="fas fa-comment"></i><span>0</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- user follow bar -->
+              <div class="hidden lg:block lg:col-span-4 sticky top-20">
+                <div
+                  class="bg-white text-black flex flex-col gap-6 rounded-xl border py-6 shadow-sm"
+                >
+                  <!-- Header -->
+                  <div
+                    class="grid auto-rows-min items-start gap-1.5 px-6 border-b pb-6"
+                  >
+                    <div class="font-semibold text-lg leading-none">
+                      WHO TO FOLLOW
+                    </div>
+                  </div>
+
+                  <!-- Content -->
+                  <div class="px-6">
+                    <div class="space-y-4">
+                      <!-- Person 1 -->
+                      <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                          <a href="/profile/fnhnafizpaypal2k24">
+                            <img
+                              class="w-8 h-8 rounded-full"
+                              src="https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ydmt6QWMyRFd1ckpYUXhZRkw2YVc5eXFCUUkifQ"
+                              alt="Fnh Nafiz"
+                            />
+                          </a>
+                          <div class="text-xs">
+                            <a
+                              class="font-medium hover:underline"
+                              href="/profile/fnhnafizpaypal2k24"
+                              >Fnh Nafiz</a
+                            >
+                            <p class="text-gray-600">@fnhnafizpaypal2k24</p>
+                            <p class="text-gray-600">0 followers</p>
+                          </div>
+                        </div>
+                        <button
+                          class="bg-gray-200 text-black text-sm font-medium px-3 h-12 rounded-md hover:bg-gray-300 w-20"
+                        >
+                          <i class="fa-solid fa-user-plus mr-1"></i>Follow
+                        </button>
+                      </div>
+
+                      <!-- Person 2 -->
+                      <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                          <a href="/profile/www.mehidi.me">
+                            <img
+                              class="w-8 h-8 rounded-full"
+                              src="https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18ydm5TRGtJazI0aFVINmZIckFmRmVZN0VDOVAifQ"
+                              alt="Mehidi Hasan"
+                            />
+                          </a>
+                          <div class="text-xs">
+                            <a
+                              class="font-medium hover:underline"
+                              href="/profile/www.mehidi.me"
+                              >Mehidi Hasan</a
+                            >
+                            <p class="text-gray-600">@www.mehidi.me</p>
+                            <p class="text-gray-600">0 followers</p>
+                          </div>
+                        </div>
+                        <button
+                          class="bg-gray-200 text-black text-sm font-medium px-3 h-12 rounded-md hover:bg-gray-300 w-20"
+                        >
+                          <i class="fa-solid fa-user-plus mr-1"></i>Follow
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--end user follow bar -->
+            </div>
+          </div>
+          <!--end middle post bar -->
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
